@@ -1,0 +1,81 @@
+﻿How to import data from file to matlab
+==========================================
+
+Example:
+
+file name: weeklydata.txt 
+looks like this −
+
+SunDay  MonDay  TuesDay  WednesDay  ThursDay  FriDay  SaturDay
+95.01   76.21   61.54    40.57       55.79    70.28   81.53
+73.11   45.65   79.19    93.55       75.29    69.87   74.68
+60.68   41.85   92.18    91.69       81.32    90.38   74.51
+48.60   82.14   73.82    41.03       0.99     67.22   93.18
+89.13   44.47   57.63    89.36       13.89    19.88   46.60
+
+code to read from .txt file
+--------------------------------------
+
+filename = 'c:/abcd/weeklydata.txt'; % file path 
+
+delimiterIn = ' ';  % sperator 
+headerlinesIn = 1;  % head row count
+
+A = importdata(filename,delimiterIn,headerlinesIn);  % importdata is function 
+
+% View data
+
+
+for k = [1:7]
+
+   disp(A.colheaders{1, k})			% disp is function to show data
+   %disp(A.data(:, k))
+   %disp(' ')
+
+end
+
+
+
+
+
+filename = '/data/myfile.txt';
+rows = 7;
+cols = 5;
+ 
+% open the file
+fid = fopen(filename);
+ 
+% read the file headers, find M (number of months)
+M = fscanf(fid, '%*s %*s\n%*s %*s %*s %*s\nM=%d\n\n', 1);
+ 
+% read each set of measurements
+for n = 1:M
+   mydata(n).time = fscanf(fid, '%s', 1);
+   mydata(n).month = fscanf(fid, '%s', 1);
+ 
+   % fscanf fills the array in column order,
+   % so transpose the results
+   mydata(n).raindata  = ...
+      fscanf(fid, '%f', [rows, cols]);
+end
+for n = 1:M
+   disp(mydata(n).time), disp(mydata(n).month)
+   disp(mydata(n).raindata)
+end
+ 
+% close the file
+fclose(fid);
+
+
+
+
+
+
+num_array = [ 1 2 3 4 ; 4 5 6 7; 7 8 9 0];
+save array_data1.out num_array -ascii;
+type array_data1.out
+dlmwrite('array_data2.out', num_array, ' ');
+type array_data2.out
+
+
+

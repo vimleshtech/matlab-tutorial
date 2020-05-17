@@ -1,0 +1,131 @@
+-Loop
+-it's Type
+-Vector
+-Matrix
+-Array
+
+
+Loop : is iterator or repeation of statement / code / command / insturctions 
+==========================
+Example:
+	1 2 3 .... 1000
+	100 99 ...... 1
+
+Funamental of Loop:
+	-init			: 1		100
+	-condition		: 1000		1	
+	-incrementer/decrement  :  +1	 	-1	
+
+	There are following types of loop:
+----------------------------------
+i. while loop 
+
+a = 1;  % start number	
+
+% while loop execution 
+
+while( a < 20 )  % condition 
+
+   fprintf('value of a: %d \n', a);
+
+   a = a + 1; % incrementer
+
+end
+
+output: 
+	1
+	2
+	...
+	19
+
+
+
+--print in descending order
+i =10;
+while ( i>=1)
+
+	fprintf("%d",i);
+	i = i-1;
+end
+
+
+
+i. for loop 
+----------------------
+for a = 10:20      % range from 20 to 19 
+
+   fprintf('value of a: %d\n', a);
+
+end
+
+output:
+10
+11
+..
+19
+
+
+
+
+-- nested loop : loop inside loop 
+1 2 3
+1 2 3 
+1 2 3 
+
+i =1 , j = 1 2 3 
+i = 2 , j = 1 2 3 
+** \n : new line 
+** \t : tab
+for i = 1:4
+   for j = 1:4
+	fprintf("%d \n",j);
+   end
+end
+
+
+
+
+for i = 1:4
+   for j = 1:4
+      if(~mod(i,j)) 
+         break; % if factor found, not prime
+      end 
+   end
+   if(j > (i/j))
+      fprintf('%d is prime\n', i);
+   end
+end
+
+
+
+
+v = [ 1; 2; 3; 4; 5; 6];	% creating a column vector of 6 elements
+v(3)
+
+rv = [1 2 3 4 5 6 7 8 9];
+sub_rv = rv(3:7)
+
+
+
+
+
+
+
+a = [ 1 2 3 4 5; 2 3 4 5 6; 3 4 5 6 7; 4 5 6 7 8]
+
+
+
+
+a = [ 1 2 3 4 5; 2 3 4 5 6; 3 4 5 6 7; 4 5 6 7 8];
+a(2,5)
+
+a = [ 1 2 3 4 5; 2 3 4 5 6; 3 4 5 6 7; 4 5 6 7 8];
+v = a(:,4)
+
+rand(3, 5)
+
+
+
+
+
+

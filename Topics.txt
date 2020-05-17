@@ -1,0 +1,38 @@
+1. Numerical methods to solve ordinary diffential equations first and second order
+parr. eq.
+2. Runge Kutta method fourth order, how to check solutions, MATLAB built in solvers,
+
+nine point finite difference method and hartee fock method
+debugging mfiles and trapezodial and simpson method for 
+
+=====
+Solve a differential equation analytically by using the dsolve function, with or without initial conditions.
+====
+First-Order
+-------------------------
+First, represent y by using syms to create the symbolic function y(t).
+
+syms y(t)
+
+Define the equation using == and represent differentiation using the diff function.
+
+ode = diff(y,t) == t*y
+ode(t) =
+diff(y(t), t) == t*y(t)
+
+Solve the equation using dsolve.
+
+ySol(t) = dsolve(ode)
+ySol(t) =
+C1*exp(t^2/2)
+
+Solve Differential Equation with Condition
+-------------------------------------
+In the previous solution, the constant C1 appears because no condition was specified. Solve the equation with the initial condition y(0) == 2. The dsolve function finds a value of C1 that satisfies the condition.
+
+cond = y(0) == 2;
+ySol(t) = dsolve(ode,cond)
+ySol(t) =
+2*exp(t^2/2)
+
+
